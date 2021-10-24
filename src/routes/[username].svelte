@@ -26,10 +26,6 @@
     let comments = getComments(); // promise
 </script>
 
-<h1>
-    Comments
-</h1>
-
 {#await comments}
     <h1>
         Loading...
@@ -37,7 +33,7 @@
     {:then response}
     {#if response.ok}
         {#await response.json() then comments}
-            <ul style="padding: 0;">
+            <ul style="padding: 0;" class="comments-container">
                 {#each comments as comment}
                     <li>
                         <Comment comment={comment}/>
@@ -45,7 +41,7 @@
                             <ul style="margin-left: 2rem; padding: 0;">
                                 {#each comment.Replies as reply}
                                     <li>
-                                        <Comment comment={reply}/>
+                                        <Comment comment={reply} isReply/>
                                     </li>
                                 {/each}
                             </ul>

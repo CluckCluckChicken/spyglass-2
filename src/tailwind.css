@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+    @apply font-bold text-blue;
+}
+
+.comments-container {
+    margin-left: 25%;
+    @apply justify-center items-center w-1/2;
+}
+
+.comment {
+    /*@apply w-1/2;*/
+}
+
+.comment.reply {
+    /*width: calc(100%);*/
+}
+
+.comment-body {
+    @apply bg-white rounded-lg break-words w-full p-3 mt-1;
+}
+
+.reaction-button {
+    @apply hover:bg-white focus:outline-none rounded-md px-1 mr-1;
+}
+.reaction-button.reacted {
+    @apply bg-primary hover:bg-primaryHover;
+}
+
+.reaction-menu {
+    transform: translate(-50%, -3rem);
+    @apply bg-darkGrey rounded-md p-1 pr-0 absolute inline-block;
+}
+
+.reaction-menu>.reaction-button {
+    @apply text-white;
+}
+
+.reaction-menu>.reaction-button:hover {
+    @apply text-black;
+}
+
+.reaction-menu>.reaction-button.reacted {
+    @apply text-black;
+}

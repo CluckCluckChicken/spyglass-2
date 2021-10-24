@@ -3,10 +3,6 @@
         margin-bottom: 1rem;
     }
 
-    .comment-body {
-        border: 1px solid black;
-    }
-
     .comment-content {
         margin: 0;
     }
@@ -14,6 +10,7 @@
 
 <script>
     export let comment;
+    export let isReply = false;
 
     import ReactionButton from "$lib/ReactionButton.svelte";
     
@@ -35,53 +32,57 @@
     }
 
     let showReactionMenu = false;
+
+    window.addEventListener("click", (e) => {
+        if (!e.target.classList.contains(`hide-reaction-menu-ignore-${comment.id}`)) {
+            showReactionMenu = false;
+        }
+    });
 </script>
 
-<div class="comment">
-    <div>
-        {comment.author.username}
-    </div>
-    <div class="comment-body">
-        <p class="comment-content">
-            {comment.content}
-        </p>
-        <div>
-            <span>
-                {comment.id}
-            </span>
-            <span style="float: right;">
-                {#await promise then response}
-                    {#await response.json() then reactions}
-                        <span>
-                            <ul>
+<div class="comment" class:reply={isReply}>
+    <a href="https://scratch.mit.edu/users/{comment.author.username}">
+        <img src={comment.author.image} alt={comment.author.username} class="float-left rounded mr-2" style="width: 60px; height: 60px;"/>
+    </a>
+    <div class="flex flex-col">
+        <a href="https://scratch.mit.edu/users/{comment.author.username}">
+            {comment.author.username}
+        </a>
+        <div class="comment-body">
+            <p class="comment-content">
+                {comment.content}
+            </p>
+            <div>
+                <span>
+                    {comment.id}
+                </span>
+                <span style="float: right;">
+                    {#await promise then response}
+                        {#await response.json() then reactions}
+                            <ul class="inline-block">
                                 {#each reactions as reaction}
                                     {#if reaction.reactions.length > 0}
                                         <ReactionButton reaction={reaction} click={react}/>
                                     {/if}
                                 {/each}
-
                             </ul>
-                        </span>
-                        <span>
                             {#if showReactionMenu}
-                                <div>
-                                    <ul>
-                                        {#each reactions as reaction}
-                                            <ReactionButton reaction={reaction} click={react}/>
-                                        {/each}
-                                    </ul>
-                                </div>
+                                <ul class="reaction-menu">
+                                    {#each reactions as reaction}
+                                        <ReactionButton reaction={reaction} click={react}/>
+                                    {/each}
+                                </ul>
                             {/if}
-                            <button on:click={() => showReactionMenu = !showReactionMenu}>
+                            <button on:click={() => showReactionMenu = !showReactionMenu} class="hide-reaction-menu-ignore-{comment.id}">
                                 😳
                             </button>
-                        </span>
+                        {/await}
                     {/await}
-                {/await}
-                <span>
-                    {comment.datetime_created}
+                    <span>
+                        {comment.datetime_created}
+                    </span>
                 </span>
-            </span>
+            </div>
         </div>
     </div>
 </div>
