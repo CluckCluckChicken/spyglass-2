@@ -23,12 +23,17 @@
     let promise = getReactions(); // promise
 
     async function react(emoji) {
-        promise = await fetch(`https://localhost:5001/api/Reactions/${comment.id}/${emoji}`, {
-            method: 'PUT',
-            headers: {
-                sessionid: "M:S:eaa555e5-055b-4f97-bcdc-c20a77c6eed4"
-            }
-        });
+        if (window.auth.isLoggedIn) {
+            promise = await fetch(`https://localhost:5001/api/Reactions/${comment.id}/${emoji}`, {
+                method: 'PUT',
+                headers: {
+                    sessionid: window.auth.sessionId
+                }
+            });
+        }
+        else {
+            alert("You need to be signed in to react");
+        }
     }
 
     let showReactionMenu = false;

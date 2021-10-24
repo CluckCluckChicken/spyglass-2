@@ -2,8 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Dosis';
+    font-weight: 400;
+    src: url('../fonts/Dosis.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DidactGothic';
+    font-weight: 400;
+    src: url('../fonts/DidactGothic.ttf') format('truetype');
+}
+
 a {
     @apply font-bold text-blue;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-didactGothic m-4;
+}
+
+h1 {
+    @apply text-6xl;
+}
+h2 {
+    @apply text-5xl;
+}
+h3 {
+    @apply text-4xl;
+}
+h4 {
+    @apply text-3xl;
+}
+h5 {
+    @apply text-2xl;
+}
+h6 {
+    @apply text-base;
+}
+
+input {
+    @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-2;
+}
+
+select {
+    @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-1 m-2;
+}
+
+.btn-default {
+    @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-2 my-1 ml-2;
 }
 
 .comments-container {
@@ -45,4 +92,8 @@ a {
 
 .reaction-menu>.reaction-button.reacted {
     @apply text-black;
+}
+
+.primary {
+    @apply transition bg-primary hover:bg-primaryHover;
 }
