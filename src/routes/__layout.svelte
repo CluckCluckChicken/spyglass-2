@@ -30,6 +30,10 @@
     let promise = setAuth();
 </script>
 
+<svelte:head>
+  <title>Magnifier</title>
+</svelte:head>
+
 {#await promise then response}
     <NavBar/>
 {/await}
