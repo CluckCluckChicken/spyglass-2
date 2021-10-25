@@ -58,7 +58,7 @@
                 {comment.content}
             </p>
             <div>
-                <span>
+                <span class="text-tiny">
                     {comment.id}
                 </span>
                 <span style="float: right;">
@@ -78,14 +78,14 @@
                                     {/each}
                                 </ul>
                             {/if}
-                            <button on:click={() => showReactionMenu = !showReactionMenu} class="hide-reaction-menu-ignore-{comment.id}">
+                            <button on:click={() => showReactionMenu = !showReactionMenu} class="hide-reaction-menu-ignore-{comment.id} mr-1">
                                 😳
                             </button>
+                            <span class="text-tiny">
+                                {comment.datetime_created}
+                            </span>
                         {/await}
                     {/await}
-                    <span>
-                        {comment.datetime_created}
-                    </span>
                 </span>
             </div>
         </div>

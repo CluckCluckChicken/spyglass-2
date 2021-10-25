@@ -101,3 +101,7 @@ select {
 .max-h-86 {
     max-height: 21.5rem;
 }
+
+.text-tiny {
+    @apply text-grey text-xs pr-1;
+}
