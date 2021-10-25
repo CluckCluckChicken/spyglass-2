@@ -15,7 +15,7 @@
     import ReactionButton from "$lib/ReactionButton.svelte";
     
     async function getReactions(commentId) {
-        let response = await fetch(`https://localhost:5001/api/Reactions/${comment.id}`);
+        let response = await fetch(`${import.meta.env.VITE_API_HOST}/api/Reactions/${comment.id}`);
 
         return response;
     }
@@ -24,7 +24,7 @@
 
     async function react(emoji) {
         if (window.auth.isLoggedIn) {
-            promise = await fetch(`https://localhost:5001/api/Reactions/${comment.id}/${emoji}`, {
+            promise = await fetch(`${import.meta.env.VITE_API_HOST}/api/Reactions/${comment.id}/${emoji}`, {
                 method: 'PUT',
                 headers: {
                     sessionid: window.auth.sessionId

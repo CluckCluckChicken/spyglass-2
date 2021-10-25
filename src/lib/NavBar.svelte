@@ -10,6 +10,8 @@
     {#if typeof window !== "undefined"}
         {#if window.auth.isLoggedIn}
             <NavBarButton href="/logout">Log out</NavBarButton>
+            <!-- svelte-ignore a11y-missing-content -->
+            <a href={`/users/${window.auth.user.username}`} class="rounded" style={`background-image: url(${window.auth.user.author.image}); background-repeat: no-repeat; background-position: center; background-size: contain; width: 96px;")`}/>
         {:else}
             <NavBarButton href="/auth">Log in</NavBarButton>
         {/if}

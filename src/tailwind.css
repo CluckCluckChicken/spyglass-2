@@ -19,7 +19,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    @apply font-didactGothic m-4;
+    @apply font-didactGothic my-4;
 }
 
 h1 {
@@ -38,7 +38,7 @@ h5 {
     @apply text-2xl;
 }
 h6 {
-    @apply text-base;
+    @apply text-xl;
 }
 
 input {
@@ -50,7 +50,7 @@ select {
 }
 
 .btn-default {
-    @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-2 my-1 ml-2;
+    @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-2 my-1 ml-2 font-normal self-center;
 }
 
 .comments-container {
@@ -96,4 +96,8 @@ select {
 
 .primary {
     @apply transition bg-primary hover:bg-primaryHover;
+}
+
+.max-h-86 {
+    max-height: 21.5rem;
 }

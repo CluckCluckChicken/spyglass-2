@@ -1,36 +1,55 @@
 <script>
-    export let comments;
+    export let url;
+    export let id;
 
     import Comment from "$lib/Comment.svelte";
-</script>
 
-{#await comments}
+    async function getComments(page) {
+        let response = await fetch(`${url}/${id}/${page}`);
+
+        let commentsArray = await response.json();
+
+        Array.prototype.push.apply(comments, commentsArray);
+
+        return comments;
+    }
+
+    let comments = [];
+
+    let page = 1;
+
+    let promise = getComments(page);
+</script>
+   
+{#await promise}
     <h1>
         Loading...
     </h1>
-{:then response}
-    {#if response.ok}
-        {#await response.json() then comments}
-            <ul style="padding: 0;" class="comments-container">
-                {#each comments as comment}
-                    <li>
-                        <Comment comment={comment}/>
-                        <div class="comment-replies">
-                            <ul style="margin-left: 2rem; padding: 0;">
-                                {#each comment.replies as reply}
-                                    <li>
-                                        <Comment comment={reply} isReply/>
-                                    </li>
-                                {/each}
-                            </ul>
-                        </div>
-                    </li>
-                {/each}
-            </ul>
-        {/await}
-    {:else}
-        <p>
-            Failed to get comments: {response.status}
-        </p>
-    {/if}
+{:then comments}
+    <div class="comments-container">
+        <h2 class="text-center">
+            Comments
+        </h2>
+        <ul class="mb-4" style="padding: 0;">
+            {#each comments as comment}
+                <li>
+                    <Comment comment={comment}/>
+                    <div class="comment-replies">
+                        <ul class="ml-16 p-none">
+                            {#each comment.replies as reply}
+                                <li>
+                                    <Comment comment={reply} isReply/>
+                                </li>
+                            {/each}
+                        </ul>
+                    </div>
+                </li>
+            {/each}
+        </ul>
+        <div class="flex flex-row place-items-center w-full mb-4">
+            <div class="flex-grow"/>
+            <button on:click={async () => promise = getComments(++page)} class="btn-default primary">Load More</button>
+            <div class="flex-grow"/>
+        </div>
+    </div>
 {/await}

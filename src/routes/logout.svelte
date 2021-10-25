@@ -10,5 +10,5 @@
 
 {#if typeof window !== "undefined"}
     <button on:click={logOut} class="btn-default primary">Yes</button>
-    <button on:click={() => location.href = "/"} class="btn-default primary">No</button>
+    <button on:click={() => location.href = "/"} class="btn-default">No</button>
 {/if}

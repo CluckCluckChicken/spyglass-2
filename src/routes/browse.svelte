@@ -17,7 +17,7 @@
 <select id="resource-type">
     <option value="users">Users</option>
     <option value="projects">Projects</option>
-    <option value="studio">Studios</option>
+    <option value="studios">Studios</option>
 </select>
 <input type="text" id="resource-id" placeholder="id or username"/>
 <button on:click={viewResource} class="btn-default primary">View</button>

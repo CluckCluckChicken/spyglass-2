@@ -1,16 +1,22 @@
 <script>
     async function getAuthCode() {
-        let response = await fetch("https://localhost:5001/api/Auth/code");
+        let response = await fetch(`${import.meta.env.VITE_API_HOST}/api/Auth/code`);
 
         return response;
     }
 
     async function completeAuth(authCode) {
-        let response = await fetch(`https://localhost:5001/api/Auth/token?code=${authCode}`)
+        let response = await fetch(`${import.meta.env.VITE_API_HOST}/api/Auth/token?code=${authCode}`);
+        let sessionId = await response.text();
 
         window.auth = {
             isLoggedIn: true,
-            sessionId: await response.text(),
+            sessionId: sessionId,
+            user: await (await fetch(`${import.meta.env.VITE_API_HOST}/api/Users`, {
+                headers: {
+                    sessionid: sessionId
+                }
+            })).json()
         }
 
         localStorage.setItem("sessionId", window.auth.sessionId);
