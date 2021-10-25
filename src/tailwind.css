@@ -5,13 +5,13 @@
 @font-face {
     font-family: 'Dosis';
     font-weight: 400;
-    src: url('../fonts/Dosis.ttf') format('truetype');
+    src: url('/fonts/Dosis.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'DidactGothic';
     font-weight: 400;
-    src: url('../fonts/DidactGothic.ttf') format('truetype');
+    src: url('/fonts/DidactGothic.ttf') format('truetype');
 }
 
 a {
