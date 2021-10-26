@@ -36,4 +36,4 @@
     {/await}
 {/await}
 
-<CommentsView url="{import.meta.env.VITE_API_HOST}/api/Comments/sapi/studios" id={studioId}/>
+<CommentsView url="{import.meta.env.VITE_API_HOST}/api/Comments/sapi/studios/{studioId}"/>

@@ -61,6 +61,6 @@
                 </div>
             </div>
         </div>
-        <CommentsView url="{import.meta.env.VITE_API_HOST}/api/Comments/sapi/{project.author.username}/projects" id={projectId}/>
+        <CommentsView url="{import.meta.env.VITE_API_HOST}/api/Comments/sapi/{project.author.username}/projects/{projectId}"/>
     {/await}
 {/await}

@@ -10,6 +10,7 @@
 
 <script>
     export let comment;
+    export let userStars;
     export let isReply = false;
 
     import ReactionButton from "$lib/ReactionButton.svelte";
@@ -36,9 +37,26 @@
         }
     }
 
-    function toggleReactionMenu(newValue) {
-        let reactionMenu = document.querySelector("#reactionMenu");
-        console.log("toggling reaction menu");
+    async function toggleStarred() {
+        if (window.auth.isLoggedIn) {
+            let response = await fetch(`${import.meta.env.VITE_API_HOST}/api/Stars`, {
+                method: 'PUT',
+                headers: {
+                    sessionid: window.auth.sessionId,
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(comment)
+            });
+
+            userStars = await response.json();
+        }
+        else {
+            alert("You need to be signed in to star comments");
+        }
+    }
+    
+    function toggleReactionMenu(newValue) {        
         if (newValue) {
             showReactionMenu = true;
 
@@ -100,6 +118,9 @@
                             </ul>
                             <button on:click={() => toggleReactionMenu(!showReactionMenu)} class="hide-reaction-menu-ignore-{comment.id} mr-1">
                                 😳
+                            </button>
+                            <button on:click={toggleStarred} class="filter" class:grayscale={userStars.find(c => c.id === comment.id) === undefined}>
+                                ⭐
                             </button>
                             <!-- svelte-ignore missing-declaration -->
                             <span class="text-tiny">

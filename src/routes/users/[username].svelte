@@ -48,4 +48,4 @@
     {/await}
 {/await}
 
-<CommentsView url="{import.meta.env.VITE_API_HOST}/api/Comments/legacy/user" id={username}/>
+<CommentsView url="{import.meta.env.VITE_API_HOST}/api/Comments/legacy/user/{username}"/>
