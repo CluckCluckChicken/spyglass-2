@@ -1,6 +1,5 @@
 <script>
     export let href;
-    export let primary = false;
 </script>
 
 <div class="inline-block px-2 py-8">

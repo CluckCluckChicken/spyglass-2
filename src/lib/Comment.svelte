@@ -46,22 +46,25 @@
 </script>
 
 <div class="comment" class:reply={isReply}>
-    <a href="/users/{comment.author.username}">
+    <a href="/users/{comment.author.username}" on:click={() => location.href = `/users/${comment.author.username}`}>
         <img src={comment.author.image} alt={comment.author.username} class="float-left rounded mr-2" style="width: 60px; height: 60px;"/>
     </a>
     <div class="flex flex-col">
-        <a href="/users/{comment.author.username}">
+        <a href="/users/{comment.author.username}" on:click={() => location.href = `/users/${comment.author.username}`}>
             {comment.author.username}
         </a>
         <div class="comment-body">
             <p class="comment-content">
                 {comment.content}
             </p>
-            <div>
-                <span class="text-tiny">
-                    {comment.id}
+            <div class="flex flex-row mt-4">
+                <span>
+                    <span class="text-tiny">
+                        {comment.id}
+                    </span>
                 </span>
-                <span style="float: right;">
+                <div class="flex flex-grow"></div>
+                <span>
                     {#await promise then response}
                         {#await response.json() then reactions}
                             <ul class="inline-block">
@@ -81,8 +84,9 @@
                             <button on:click={() => showReactionMenu = !showReactionMenu} class="hide-reaction-menu-ignore-{comment.id} mr-1">
                                 😳
                             </button>
+                            <!-- svelte-ignore missing-declaration -->
                             <span class="text-tiny">
-                                {comment.datetime_created}
+                                {moment(comment.datetime_created).fromNow()}
                             </span>
                         {/await}
                     {/await}
