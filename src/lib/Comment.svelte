@@ -46,11 +46,11 @@
 </script>
 
 <div class="comment" class:reply={isReply}>
-    <a href="https://scratch.mit.edu/users/{comment.author.username}">
+    <a href="/users/{comment.author.username}">
         <img src={comment.author.image} alt={comment.author.username} class="float-left rounded mr-2" style="width: 60px; height: 60px;"/>
     </a>
     <div class="flex flex-col">
-        <a href="https://scratch.mit.edu/users/{comment.author.username}">
+        <a href="/users/{comment.author.username}">
             {comment.author.username}
         </a>
         <div class="comment-body">
