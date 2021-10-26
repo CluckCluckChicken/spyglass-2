@@ -36,11 +36,30 @@
         }
     }
 
-    let showReactionMenu = false;
+    function toggleReactionMenu(newValue) {
+        let reactionMenu = document.querySelector("#reactionMenu");
+        console.log("toggling reaction menu");
+        if (newValue) {
+            showReactionMenu = true;
 
-    window.addEventListener("click", (e) => {
+            reactionMenuFadeIn = true;
+
+            setTimeout(() => reactionMenuFadeIn = false, 200);
+        }
+        else {
+            reactionMenuFadeOut = true;
+
+            setTimeout(() => { reactionMenuFadeOut = false; showReactionMenu = false; }, 200);
+        }
+    }
+
+    let showReactionMenu = false;
+    let reactionMenuFadeIn = false;
+    let reactionMenuFadeOut = false;
+    
+    document.body.addEventListener("click", (e) => {
         if (!e.target.classList.contains(`hide-reaction-menu-ignore-${comment.id}`)) {
-            showReactionMenu = false;
+            toggleReactionMenu(false);
         }
     });
 </script>
@@ -74,14 +93,12 @@
                                     {/if}
                                 {/each}
                             </ul>
-                            {#if showReactionMenu}
-                                <ul class="reaction-menu">
-                                    {#each reactions as reaction}
-                                        <ReactionButton reaction={reaction} click={react}/>
-                                    {/each}
-                                </ul>
-                            {/if}
-                            <button on:click={() => showReactionMenu = !showReactionMenu} class="hide-reaction-menu-ignore-{comment.id} mr-1">
+                            <ul class="reaction-menu" class:invisible={!showReactionMenu} class:fade-in={reactionMenuFadeIn} class:fade-out={reactionMenuFadeOut}>
+                                {#each reactions as reaction}
+                                    <ReactionButton reaction={reaction} click={react}/>
+                                {/each}
+                            </ul>
+                            <button on:click={() => toggleReactionMenu(!showReactionMenu)} class="hide-reaction-menu-ignore-{comment.id} mr-1">
                                 😳
                             </button>
                             <!-- svelte-ignore missing-declaration -->
