@@ -17,4 +17,4 @@ npm run dev
 npm run build
 ```
 
-The app in production can be found at [magnifier.potatophant.net](https://magnifier.potatophant.net]
+The app in production can be found at [magnifier.potatophant.net](https://magnifier.potatophant.net)
