@@ -12,12 +12,14 @@
     }
 </script>
 
-<h2>Browse Comments:</h2>
+<h2 class="ml-2">Browse Comments:</h2>
 
-<select id="resource-type">
-    <option value="users">Users</option>
-    <option value="projects">Projects</option>
-    <option value="studios">Studios</option>
-</select>
-<input type="text" id="resource-id" placeholder="id or username"/>
-<button on:click={viewResource} class="btn-default primary">View</button>
+<div class="flex flex-wrap">
+    <select id="resource-type">
+        <option value="users">Users</option>
+        <option value="projects">Projects</option>
+        <option value="studios">Studios</option>
+    </select>
+    <input type="text" id="resource-id" placeholder="id or username"/>
+    <button on:click={viewResource} class="btn-default primary">View</button>
+</div>

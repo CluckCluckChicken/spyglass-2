@@ -36,7 +36,7 @@
 
 {#await promise then response}
     <NavBar/>
-    <div class="ml-4">
+    <div class="mx-4">
         <slot/>
     </div>
 {/await}

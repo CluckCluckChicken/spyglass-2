@@ -24,9 +24,10 @@
     {#await result.json() then studio}
         <div class="justify-center items-center w-full mb-4">
             <div class="flex flex-col justify-center items-center w-2/3 mx-auto" style="max-width: 900px;">
-                <div class="flex flex-row my-4 w-full">
-                    <!-- svelte-ignore a11y-missing-content -->
-                    <a href={`/studios/${studioId}`} class="rounded mr-2" style={`background-image: url(${studio.image}); background-repeat: no-repeat; background-position: center; background-size: contain; width: 72px;")`}/>
+                <div class="flex flex-wrap my-4 w-full">
+                    <a href="/studios/{studioId}">
+                        <img src={studio.image} alt={studio.title} class="rounded mr-2" style="max-width: 125px;"/>
+                    </a>
                     <h1>{studio.title}</h1>
                     <div class="flex-grow"></div>
                     <a href="https://scratch.mit.edu/studios/{studioId}" target="_blank" class="btn-default primary">View on Scratch</a>

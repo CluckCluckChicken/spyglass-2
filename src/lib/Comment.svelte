@@ -92,7 +92,7 @@
         </a>
         <div class="comment-body">
             <p class="comment-content">
-                {comment.content}
+                {@html comment.content}
             </p>
             <div class="flex flex-row mt-4">
                 <span>

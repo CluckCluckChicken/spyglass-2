@@ -35,7 +35,7 @@
     </h1>
 {:then response} 
     {#await response.text() then authCode}
-        <div class="flex flex-row">
+        <div class="flex flex-wrap">
             <h5>{authCode}</h5>
             <button on:click={() => navigator.clipboard.writeText(authCode)} class="btn-default">Copy</button>
         </div>

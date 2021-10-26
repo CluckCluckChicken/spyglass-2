@@ -14,6 +14,16 @@
     src: url('/fonts/DidactGothic.ttf') format('truetype');
 }
 
+html {
+    font-size: 75%;
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 100%;
+    }
+}
+
 a {
     @apply font-bold text-blue;
 }
@@ -42,7 +52,7 @@ h6 {
 }
 
 input {
-    @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-2;
+    @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-2 m-2;
 }
 
 select {
@@ -53,9 +63,11 @@ select {
     @apply transition duration-300 bg-white hover:bg-whiteHover focus:outline-none text-black font-dosis text-4xl rounded-2xl p-2 my-1 ml-2 font-normal self-center;
 }
 
-.comments-container {
-    margin-left: 25%;
-    @apply justify-center items-center w-1/2;
+@media (min-width: 1024px) {
+    .comments-container {
+        margin-left: 25%;
+        @apply justify-center items-center w-1/2;
+    }
 }
 
 .comment {
