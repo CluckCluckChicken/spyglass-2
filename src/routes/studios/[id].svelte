@@ -2,7 +2,7 @@
     export async function load(ctx) {
         let data = ctx.page.params;
 
-        return { props: { studioId: data.studioId } }
+        return { props: { studioId: data.id } }
     }
 </script>
 
