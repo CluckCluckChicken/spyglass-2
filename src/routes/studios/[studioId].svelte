@@ -25,7 +25,7 @@
         <div class="justify-center items-center w-full mb-4">
             <div class="flex flex-col justify-center items-center w-2/3 mx-auto" style="max-width: 900px;">
                 <div class="flex flex-wrap my-4 w-full">
-                    <a href="/studios/{studioId}">
+                    <a href="/studios/{studioId}" class="mr-2">
                         <img src={studio.image} alt={studio.title} class="rounded mr-2" style="max-width: 125px;"/>
                     </a>
                     <h1>{studio.title}</h1>

@@ -25,7 +25,7 @@
         <div class="lg:justify-center lg:items-center w-full mb-4">
             <div class="flex flex-wrap lg:justify-center lg:items-center lg:w-2/3 lg:mx-auto" style="max-width: 900px;">
                 <div class="flex flex-wrap my-4 w-full">
-                    <a href="/projects/{projectId}">
+                    <a href="/projects/{projectId}" class="mr-2">
                         <img src={project.author.profile.images.big} alt={project.author.username} class="rounded mr-2" style="max-width: 250px;"/>
                     </a>
                     <h3>{project.title}</h3>
