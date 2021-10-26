@@ -1,4 +1,4 @@
-# Welcome to Spyglass' Repository![favicon](static/favicon.png)
+# Welcome to Spyglass' Repository    ![favicon](static/favicon.png)
 
 This is part of Magnifier v2 and is the web application complimenting the [Server-side C# Source code](https://github.com/CluckCluckChicken/Magnifier-2), written in [svelte](https://svelte.dev).
 
