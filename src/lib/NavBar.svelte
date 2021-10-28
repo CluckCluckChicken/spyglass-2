@@ -12,7 +12,6 @@
     <div class="flex-grow" />
     {#if typeof window !== "undefined"}
         {#if window.auth.isLoggedIn}
-            <NavBarButton href="/settings">Settings</NavBarButton>
             <NavBarButton href="/logout">Log out</NavBarButton>
             <a href="/users/{window.auth.user.username}" class="my-auto mr-2">
                 <img src={window.auth.user.author.image} alt={window.auth.user.username} class="rounded" style="width: 90px;"/>
