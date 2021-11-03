@@ -52,8 +52,8 @@
                     <img src="https://scratch.mit.edu/svgs/project/love-gray.svg" alt="Loves" class="w-8 mr-2">
                     <h6 class="mr-8 font-bold">{project.stats.loves}</h6>
                     <img src="https://scratch.mit.edu/svgs/project/fav-gray.svg" alt="Favourites" class="w-8 mr-2">
-                    <h6 class="mr-8 font-bold">{project.stats.favourites}</h6>
-                    <img src="https://scratch.mit.edu/svgs/project/remix-gray.svg" alt="Favourites" class="w-8 mr-2">
+                    <h6 class="mr-8 font-bold">{project.stats.favorites}</h6>
+                    <img src="https://scratch.mit.edu/svgs/project/remix-gray.svg" alt="Remixes" class="w-8 mr-2">
                     <h6 class="mr-8 font-bold">{project.stats.remixes}</h6>
                     <img src="https://scratch.mit.edu/svgs/project/views-gray.svg" alt="Views" class="w-8 mr-2">
                     <h6 class="mr-8 font-bold">{project.stats.views}</h6>
