@@ -14,7 +14,7 @@
 
     async function getUser() {
         let response = await fetch(`${import.meta.env.VITE_API_HOST}/api/Scratch/users/${username}`);
-
+        
         return response;
     }
 
@@ -60,11 +60,11 @@
                     <div class="flex flex-col max-w-sm ml-4 -mt-4">
                         <div class="flex flex-col">
                             <h3>About me</h3>
-                            <div class="overflow-y-auto break-words max-h-44">{user.profile.bio}</div>
+                            <div class="overflow-y-auto break-words max-h-44">{@html user.profile.bio.replaceAll("\n", "<br>")}</div>
                         </div>
                         <div class="flex flex-col">
                             <h3>What I'm working on</h3>
-                            <div class="overflow-y-auto break-words max-h-44">{user.profile.status}</div>
+                            <div class="overflow-y-auto break-words max-h-44">{@html user.profile.status.replaceAll("\n", "<br>")}</div>
                         </div>
                     </div>
                 </div>
